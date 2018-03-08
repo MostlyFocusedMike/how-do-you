@@ -1,0 +1,29 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px; }
+
+.task-holder {
+  border: 2px solid black;
+  margin: 1rem auto;
+  width: 98%;
+  max-width: 45rem; }
+  .task-holder h3 {
+    text-align: center; }
+  .task-holder .task-answers {
+    border: 1px solid black;
+    width: 80%;
+    margin: 1rem auto; }
+    .task-holder .task-answers .answer p {
+      text-align: center; }
+    .task-holder .task-answers .answer .code-ans {
+      padding: 1rem;
+      border: 1px solid pink;
+      max-width: 80%;
+      overflow-x: auto;
+      margin: 1rem auto;
+      font-size: .8rem; }
+    .task-holder .task-answers .answer .task-ans {
+      margin: 1rem; }
+
+/*# sourceMappingURL=styles.css.map */

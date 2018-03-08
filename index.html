@@ -1,18 +1,507 @@
 <!DOCTYPE html> 
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Mike Cronin">
-        <meta name="description" content="My site">
-        <title>My Site</title>
-        <link rel="stylesheet" href="css/styles.css" type="text/css" />
-    </head>
-    <body>
-        <div id="wrapper">
-        
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mike Cronin">
+    <meta name="description" content="My site">
+    <title>My Site</title>
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+</head>
+<body>
+  <header>
+    <h1>How do you...</h1>
+    <h3>A quick reference guide for doing basic tasks in different languages</h3>
+  </header>
+  <main role="main">
+<!--1  -->
+<div class="task-holder">
+      <h3 class="task-question">
+        Create an indexed array
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+          <pre><code>
+             
+// create a new empty array
+let arr = [];
+let arr = new Array();
+// create an array values inside 
+let arr = ["foo", "bar"];
+let arr = new Array("foo", "bar");
+// arrays can hold objects, 
+// other arrays, booleans, and variables 
+let foo = "bar",
+  obj = {"age": 25},
+  otherArr = ["a", "b"];
+// spaces are allowed: 
+arr = [foo, 
+  {"name": "Helen"}, 
+  obj, 
+  ["hello", "there"], 
+  otherArr];
+          </code></pre>
+          </div>
+          <p class="task-ans">
+            Creating an indexed array can be done either using a new Array object, or using literal notaion with the brackets. 
+          </p>
         </div>
-        <script src="js/script.js" charset="utf-8"></script>
-    </body>
+      </div>
+    </div>
+    
+
+
+
+<!--2  -->
+<div class="task-holder">
+      <h3 class="task-question">
+        Show value of an index and index of a value
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+          <pre><code>
+// give index, get value 
+let arr = ["a", "b", "c"]
+console.log(arr[2]); // "c"
+//give value, get index 
+console.log(arr.indexOf("b")); // "1"
+console.log(arr.indexOf("f")); // "-1"
+          </code></pre>
+          </div>
+          <p class="task-ans">
+            If you know the index, just put it in brackets after the array. If you know the 
+            value, use .indexOf() method and pass the value you are looking for as an argument.
+            If the value does not exist in the array, it will return a value of "-1" as the
+            index.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+<!--3  -->
+
+    <div class="task-holder">
+      <h3 class="task-question">
+        Show length of array
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+          <pre><code>
+// give index, get value 
+let arr = ["a", "b", "c"]
+console.log(arr.length) // 3
+          </code></pre>
+          </div>
+          <p class="task-ans">
+            The .length method will return the length of the array 
+          </p>
+        </div>
+      </div>
+    </div>
+
+<!--4  -->
+
+    <div class="task-holder">
+      <h3 class="task-question">
+        Change a value at a known or unknown index
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+          <pre><code>
+let arr = ["a", "b", "c", "d", "e", "f"];
+// known index
+arr[3] = "bar";
+// unknown index
+arr[arr.indexOf("b")] = "foo";
+console.log(arr); 
+// ["a", "foo", "c", "bar", "e", "f"];
+// be careful of indexes that don't exist 
+arr[8] = "hame"
+console.log(arr); 
+// ["a", "foo", "c", "bar", "e", "f", undefined, undefined, "hame"]
+          </code></pre>
+          </div>
+          <p class="task-ans">
+            To change the value at an index, just use bracket notation and redeclare the vlaue.
+            To change a value at an unknown index, use the arr.indexOf("value") inside 
+            the bracket notation of the array. <br />
+            If you try to declare the value of an index that is out of range of the array, you 
+            won't get an error, the array will simply fill in all intermediate indexes with a 
+            value of "undefined". This is why, when adding a value to the end of an array,
+            you should always use one of the methods below, like .push().
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="task-holder">
+      <h3 class="task-question">
+        Add a value to the end of an array
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+          <pre><code>
+let arr = [];
+arr.push("foo");
+arr.push("bar");
+console.log(arr);
+  // ["foo", "bar"]
+let x = arr.push("ham")
+// x is now the value 3
+          </code></pre>
+          </div>
+          <p class="task-ans">
+            In JS, use the .push() method to "push" a value onto the end of an array.
+            This affects the original array and returns the new length of the array
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-holder">
+      <h3 class="task-question">Add a value to the start of an array</h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+          <pre><code>
+             
+let arr = [];
+arr.unshift("foo");
+arr.unshift("bar");
+console.log(arr);
+  // ["bar", "foo"]
+let x = arr.unshift("ham") // x is now the value 3
+          
+          </code></pre>
+          </div>
+          <p class="task-ans">
+            Use the .unshift() method to put an item at the start of an array. 
+            This affects the original array and the return value is the new length of the array. 
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+<div class="task-holder">
+      <h3 class="task-question">Remove a value at the end of an array</h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+          <pre><code>
+             
+let arr = ["a", "b", "c"];
+let popped = arr.pop();
+console.log(arr);
+// ["a", "b"]
+console.log(popped);
+// "c"
+          
+          </code></pre>
+          </div>
+          <p class="task-ans">
+            The pop() method removes the last element of an array, and returns that element. 
+            This affects the actual array itself.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="task-holder">
+      <h3 class="task-question">Remove a value at the start of an array</h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre><code>
+             
+let arr = ["a", "b", "c"];
+let shifted = arr.shift();
+console.log(arr);
+// ["b", "c"]
+console.log(shifted);
+// "a"
+          
+          </code></pre>
+          </div>
+          
+          <p class="task-ans">
+            The shift() method removes the first element of an array, and returns that element. 
+            This affects the actual array itself.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="task-holder">
+      <h3 class="task-question">
+        Join an array into a string 
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre>
+            <code>
+let arr = ["a", "b", "c"];
+console.log(arr.toString());
+// a,b,c
+console.log(arr.join(", then "));
+// "a, then b, then c
+
+// join() can also take variables as arguments
+let foo = " wow ";
+console.log(arr.join(foo));
+// "a wow b wow c"
+
+foo = ["foo", "bar"];
+console.log(arr.join(foo));
+// "afoo,barbfoo,barc
+            </code>
+            </pre>
+          </div>
+          
+          <p class="task-ans">
+          To join the items in an array into a string there are two main ways: toString() and join().
+          <br /> toString() will join the array values into a string separated only by a comma.
+          <br /> join() takes an argument and then inserts that between the values of the array. 
+          <br />It's intersting to note that if the argument is an array or number it will be 
+          converted into a string using the toString() method.
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="task-holder">
+      <h3 class="task-question">
+        Insert/remove items anywhere in an array
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre>
+            <code>
+// including index 2, remove 1 item (c)
+let arr = ["a", "b", "c", "d", "e", "f"];
+arr.splice(2, 1);
+console.log(arr);
+// ["a", "b", "d", "e", "f"]
+// you can remove as many items as you like
+// just change the second argument
+
+//starting at index 3, remove 0 items, put int "foo" and "bar"
+arr = ["a", "b", "c", "d", "e"];
+arr.splice(3, 0, "foo", "bar";
+console.log(arr);
+// ["a", "b", "c", "foo", "bar", "d", "e"]
+// note: the new items will START on index 3
+
+// splice() returns only the items that it removes 
+console.log(arr.splice(2,2, "foo"));
+// ["c", "d"]
+// notice the "foo" is ignored 
+console.log(arr);
+// ["a", "b", "foo", "e", "f"]
+// but see how it still affects the array
+
+            </code>
+            </pre>
+          </div>
+          <p class="task-ans">
+            Using the splice() method works like so:
+            <br />arr.splice(index, num ofitems to remove, items to add, another item, ...)
+            So you can use the method without any items to remove things from an array,
+            or you can add items into the array. 
+            <br /> NOTE: the index is inclusive, so if you put 3, it will delete or add
+            items in ON the third index.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="task-holder">
+      <h3 class="task-question">
+        Clone a slice of or an entire array
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre>
+            <code>
+
+let arr = ["a", "b", "c", "d", "e", "f"];
+// copy the entire array
+let newArr = arr.slice(0);
+console.log(newArr);
+// ["a", "b", "c", "d", "e", "f"];
+
+// copy from (including) the index 2
+newArr = arr.slice(2);
+console.log(newArr);
+// ["c", "d", "e", "f"]
+  
+// copy from the third to last value 
+newArr = arr.slice(-3);
+console.log(newArr);
+// ["d", "e", "f"]
+ 
+// copy from the index 2 up to index 5
+newArr = arr.slice(2, 5);
+console.log(newArr);
+// ["c", "d", "e"]
+
+// copy from the index 2 up to the last index
+newArr = arr.slice(2, -1);
+console.log(newArr);
+// ["c", "d", "e"]
+
+// copy from the 4th to last up to the last 
+newArr = arr.slice(-4, -1);
+console.log(newArr);
+// ["c", "d", "e"]
+
+            </code>
+            </pre>
+          </div>
+          <p class="task-ans">
+            The .slice() method creates a new array without affecting the original. It takes two
+            arguments, the first is the index to start the slice on, the second is where to 
+            go up to. 
+            <br />The first index is inclusive, the second is exclusive. If only one argument
+            is given, it is inclusive. Negative numbers can be used, these will be indexes from
+            the end (-1 is the last, -2 is second from the last).
+            So arr.slice(0) is how to simply clone an array.
+            
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="task-holder">
+      <h3 class="task-question">
+       Empty an array
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre>
+            <code>
+let arr = ["a", "b", "c", "d", "e", "f"];
+arr.length = 0;
+// this changes the actual array, so that any and all 
+// references to it now draw upon an empty array
+
+//bad method 
+let arr = ["a", "b", "c", "d", "e", "f"];
+...code
+arr = [];
+// this creates a NEW blank array, but doesn't 
+// erase the old one, so previous references mess up
+            </code>
+            </pre>
+          </div>
+
+          <p class="task-ans">
+            While unintuitive, setting the length of an array to 0 will delete 
+            the contents in the actual array and take care of any reference issues.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="task-holder">
+      <h3 class="task-question">
+        Reverse the order of items in an array
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre>
+            <code>
+let arr = ["a", "b", "c", "d"];
+console.log(arr.reverse());
+// ["d", "c", "b", "a"]
+            </code>
+            </pre>
+          </div>
+
+          <p class="task-ans">
+            The .reverse() method reverses each value in an array.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="task-holder">
+      <h3 class="task-question">
+        Sort an array alphabetically
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre>
+            <code>
+let arr = ["d", "c", "a", "b"];
+console.log(arr.sort());
+// ["a", "b", "c", "d"]
+            </code>
+            </pre>
+          </div>
+
+          <p class="task-ans">
+            The .sort() method sorts each value alphabetically. 
+          </p>
+        </div>
+      </div>
+    </div>    
+
+
+
+
+  </main>
+  <script src="js/script.js" charset="utf-8"></script>
+</body>
 </html>
 
