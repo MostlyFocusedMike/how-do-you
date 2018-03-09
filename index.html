@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Mike Cronin">
     <meta name="description" content="My site">
-    <title>My Site</title>
+    <title>How do you...</title>
     <link rel="stylesheet" href="css/styles.css" type="text/css" />
 </head>
 <body>
@@ -497,6 +497,200 @@ console.log(arr.sort());
       </div>
     </div>    
 
+
+
+
+
+     <div class="task-holder">
+      <h3 class="task-question">
+       Sort an array numerically
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre>
+            <code>
+let arr = [10, 40, 2, 30, 50, 45, 71, 7]; 
+  
+// lowest to highest 
+arr.sort(function(a, b){return a - b;});
+  console.log(arr);  
+  // [2, 7, 10, 30, 40, 45, 50, 71]
+
+
+// highest to lowest 
+arr.sort(function(a, b){return b - a;});
+  console.log(arr);
+  // [71, 50, 45, 40, 30, 10, 7, 2]
+
+            </code>
+            </pre>
+          </div>
+
+          <p class="task-ans">
+            The .sort() method takes a sorting function that tells it to subtract two values 
+            from one another. This gets a positive number, negative number or 0, which tells 
+            .sort() the value of each number in the array compared to the other numbers. 
+            <br />a-b returns smallest to highest and b-a returns the opposite.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="task-holder">
+      <h3 class="task-question">
+        Sort an object array
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre>
+            <code>
+// an array made up of objects, each with a 
+// numeric property value (i.e. year)
+var cars = [
+    {type:"Volvo", year:2016},
+    {type:"Saab", year:2001},
+    {type:"BMW", year:2010}
+  ];
+// use the same sort function, just add dot notation
+cars.sort(function(a, b){return a.year - b.year});
+            </code>
+            </pre>
+          </div>
+
+          <p class="task-ans">
+            Sorting objects by their property value is a simple matter of 
+            using dot notation to access the property value that you want.
+            The same sorting function applies.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="task-holder">
+      <h3 class="task-question">
+       Convert an array like object (html node list) into an array
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre>
+            <code>
+
+// get your node list
+var items = document.getElementsByTagName("li");
+
+// this is the actual conversion line
+var arr = Array.prototype.slice.call(items);
+
+
+// use array only methods on the actual nodes
+// as you can see, this will change the color of every node
+arr.forEach(function(item, index){
+  item.style.color = "blue";
+});
+
+// another example of an array only method
+let thing = document.getElementById("foo");
+console.log(arr.indexOf(thing));
+// for instance, it will show an index of 1
+// since that is where that specific node is
+            </code>
+            </pre>
+          </div>
+
+          <p class="task-ans">
+            HTML node lists can have a length and be looped through, but that's it. If you 
+            want to use methods like .forEach, indexOf, .pop, then you will need to create 
+            an array. 
+            <br />Do this by using the Array.prototype's slice method, and use call to change
+            the value of this to the array like object you want to convert. Now, using that 
+            new, real array, you can manipulate and use any array method you want.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="task-holder">
+      <h3 class="task-question">
+       Find the max and min of an array
+      </h3>
+      <div class="task-answers">
+        <div class="js-answer answer">
+          <p>JavaScript</p>
+          <div class="code-ans">
+            <pre>
+            <code>
+let arr = [1, 4, 100, 12, 40];
+// find the max value of an array
+console.log(Math.max.apply(null, arr));
+
+// find the min value of an array 
+console.log(Math.min.apply(null, arr));
+
+// find max value of a set of numbers 
+console.log(Math.max(1,2,3,4));
+
+// find the min value of a set of numbers 
+console.log(Math.min(1,2,3,4));
+
+
+// the above methods are the simplest,
+// but below are the fastest way to find
+// the min and max of an array 
+
+// max
+function myArrayMax(arr) {
+    var len = arr.length
+    var max = -Infinity;
+    while (len--) {
+        if (arr[len] &#62; max) {
+            max = arr[len];
+        }
+    }
+    return max;
+}
+
+// min
+function myArrayMin(arr) {
+    var len = arr.length
+    var min = Infinity;
+    while (len--) {
+        if (arr[len] &#60; min) {
+            min = arr[len];
+        }
+    }
+    return min;
+}
+
+            </code>
+            </pre>
+          </div>
+
+          <p class="task-ans">
+            Use the Math.max or min to find the max and min, but if you are using an array and 
+            not just a set, you need to use the .apply method to change the value of "this"
+            to be null and then take the array as the argument. <a href="#http://hangar.runway7.net/javascript/difference-call-apply">Here</a> is an excellent article explaining why you use 
+            apply and not call (call is for variables, apply is for arrays).
+            <br />The two functions listed are the fastest way to do this, but more verbose.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    
 
 
 
